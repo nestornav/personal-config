@@ -8,4 +8,9 @@
 	st = status
 	cm = commit -m
 	br = branch
+	brd = branch -D
 	brr = branch -a
+	ck = checkout
+	ckb = checkout -b
+	sh = stash
+	shl = stash list
