@@ -1,0 +1,15 @@
+name: divvyhq 
+root: ~/
+
+pre_window: workon divvyhq
+startup_window: terminal 
+
+windows:
+  - servers:
+        layout: 9843,150x42,0,0{75x42,0,0[75x21,0,0,0,75x20,0,22,2],74x42,76,0,1}
+        panes:
+                - cd ./legacy-frontend 
+                - cd ./frontend
+                - cd ./djangosite
+  - terminal:
+  - editor: nvim
