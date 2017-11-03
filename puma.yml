@@ -1,0 +1,15 @@
+# ~/.tmuxinator/puma.yml
+
+name: puma
+root: ~/
+
+startup_window: terminal 
+
+windows:
+  - puma:
+      root: ~/dev/me/puma
+      layout: main-vertical
+      panes:
+        - nvim
+        - 
+  - terminal: 
