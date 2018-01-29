@@ -14,3 +14,5 @@
 	ckb = checkout -b
 	sh = stash
 	shl = stash list
+[push]
+	default = simple
