@@ -13,8 +13,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'mhinz/vim-signify'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'w0rp/ale'
 
-" All of your Plugins must be added before the following line
+" All of your Plugins must be added before the following line 
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -61,6 +63,13 @@ else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+"NERDTree Configuration
+
+silent! nmap <C-p> :NERDTreeToggle<CR>
+silent! map <F3> :NERDTreeFind<CR>
+
+let g:NERDTreeMapActivateNode="<F3>"
 
 " Autolaunch NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -114,3 +123,30 @@ if has("gui_running")
        set guifont=Inconsolata\ for\ Powerline:h15
     endif
 endif
+
+" CtrlP Configuration
+
+" file finder mapping
+let g:ctrlp_map = ',e'
+" open buffers finder mapping
+nmap ,b :CtrlPBuffer<CR>
+" tags (symbols) in current file finder mapping
+nmap ,g :CtrlPBufTag<CR>
+" tags (symbols) in all files finder mapping
+nmap ,G :CtrlPBufTagAll<CR>
+" general code finder in all files mapping
+nmap ,f :CtrlPLine<CR>
+" recent files finder mapping
+nmap ,m :CtrlPMRUFiles<CR>
+" commands finder mapping
+nmap ,c :CtrlPCmdPalette<CR>
+" to be able to call CtrlP with default search text
+function! CtrlPWithSearchText(search_text, ctrlp_command_end)
+    execute ':CtrlP' . a:ctrlp_command_end
+    call feedkeys(a:search_text)
+endfunction
+
+"Open the files always in a new buffer
+let g:ctrlp_switch_buffer = 0
+"Don't change working directory
+let g:ctrlp_working_path_mode = 0
