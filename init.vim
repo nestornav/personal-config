@@ -1,35 +1,30 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.config/nvim/plugged')
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'mhinz/vim-signify'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'w0rp/ale'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'mhinz/vim-signify'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'w0rp/ale'
 
-" All of your Plugins must be added before the following line 
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+call plug#end()
 
 "============================
 " Configurations
@@ -38,9 +33,6 @@ filetype plugin indent on    " required
 " set up tab space and convert tabs into spaces
 set tabstop=4
 set expandtab
-
-" enable sintax highlighting
-syntax on
 
 " show line numbers
 set number
@@ -108,24 +100,6 @@ call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
-" Powerline Configuration
-"set guifont=Inconsolata\  for\ Powerline:h15
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8
-
-if has("gui_running")
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n"
-       set guifont=Inconsolata\ for\ Powerline:h15
-    endif
-endif
-
-" CtrlP Configuration
-
 " file finder mapping
 let g:ctrlp_map = ',e'
 " open buffers finder mapping
@@ -150,3 +124,8 @@ endfunction
 let g:ctrlp_switch_buffer = 0
 "Don't change working directory
 let g:ctrlp_working_path_mode = 0
+
+" Deople config
+let g:deoplete#enable_at_startup = 1
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.6/bin/python3'
