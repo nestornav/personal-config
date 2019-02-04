@@ -13,6 +13,7 @@ Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
 
@@ -26,26 +27,38 @@ endif
 
 call plug#end()
 
-"============================
+"===============
 " Configurations
-"============================
+"===============
 
 " set up tab space and convert tabs into spaces
 set tabstop=4
 set expandtab
+set shiftwidth=4
+set smartindent
 
 " show line numbers
 set number
-
-" highlight current line
 set cursorline
+set lazyredraw
+set nowrap
 
 " highlight matching braces
 set showmatch
+set cursorline
+set noswapfile
 
 " search config
 set incsearch
 set hlsearch
+
+" Navigation
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+"=====================
+"Plugin Configurations
+"=====================
 
 " allows cursor change in tmux mode
 if exists('$TMUX')
