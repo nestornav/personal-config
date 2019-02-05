@@ -36,12 +36,15 @@ set tabstop=4
 set expandtab
 set shiftwidth=4
 set smartindent
+set foldlevel=2
 
 " show line numbers
 set number
 set cursorline
 set lazyredraw
 set nowrap
+set background=dark
+set termguicolors
 
 " highlight matching braces
 set showmatch
@@ -179,3 +182,13 @@ let g:ctrlp_working_path_mode = 0
 let g:deoplete#enable_at_startup = 1
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.6/bin/python3'
+
+" ale configuration
+    let g:ale_linters = {
+    \   'python': ['pylint', 'flake8'],
+    \}
+    let g:ale_lint_delay = 1000
+    " set statusline+=%{ALEGetStatusLine()}
+    let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+    let g:ale_python_pylint_change_directory = 0
+
