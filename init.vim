@@ -14,8 +14,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'ryanoasis/vim-devicons'
+Plug 'bronson/vim-trailing-whitespace'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
+Plug 'moll/vim-bbye'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -45,6 +47,9 @@ set lazyredraw
 set nowrap
 set background=dark
 set termguicolors
+
+syntax on
+colorscheme lucius
 
 " highlight matching braces
 set showmatch
@@ -152,6 +157,9 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
       let g:airline_symbols.readonly = ''
       let g:airline_symbols.linenr = ''
     endif
+
+" Airline theme
+let g:airline_theme='lucius'
 
 " file finder mapping
 let g:ctrlp_map = ',e'
