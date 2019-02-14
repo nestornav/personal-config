@@ -158,6 +158,9 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
       let g:airline_symbols.linenr = ''
     endif
 
+"Airline show number of errors on statusbar.
+let g:airline#extensions#ale#enabled = 1
+
 " Airline theme
 let g:airline_theme='lucius'
 
@@ -194,6 +197,7 @@ let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.6/bin
 " ale configuration
     let g:ale_linters = {
     \   'python': ['pylint', 'flake8'],
+    \   'javascript': ['eslint'],
     \}
     let g:ale_lint_delay = 1000
     " set statusline+=%{ALEGetStatusLine()}
