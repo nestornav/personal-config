@@ -55,6 +55,7 @@ colorscheme lucius
 set showmatch
 set cursorline
 set noswapfile
+set hidden
 
 " search config
 set incsearch
