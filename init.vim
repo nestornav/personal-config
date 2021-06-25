@@ -193,7 +193,7 @@ let g:ctrlp_working_path_mode = 0
 " Deople config
 let g:deoplete#enable_at_startup = 1
 let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.6/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " ale configuration
     let g:ale_linters = {

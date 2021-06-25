@@ -48,3 +48,16 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Alias
 alias vscode="open -a Visual\ Studio\ Code"
+alias python=python3
+alias pip=pip3
+
+# Alias git
+alias gt="git --help"
+alias gts="git status"
+alias gtd="git diff"
+alias gtl="git log"
+alias gtb="git branch"
+alias gtr="git remove -v"
+alias gtcm="git commit -m"
+alias gtp="git pull"
+alias gtph="git push"
