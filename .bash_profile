@@ -15,8 +15,9 @@ PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-export VIRTUALENVWRAPPER_VIRTUALENV=/Users/nestornav/Library/Python/2.7/bin/virtualenv
-source Library/Python/2.7/bin/virtualenvwrapper.sh
+# Those path it's just for OSX
+export VIRTUALENVWRAPPER_VIRTUALENV=/Users/nestornav/Library/Python/Version_X.X/bin/virtualenv
+source /Users/nestornav/Library/Python/Version_X.X/bin/virtualenvwrapper.sh
 
 # Pyenv stuff
 
