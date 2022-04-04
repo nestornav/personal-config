@@ -12,12 +12,12 @@ PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 # export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 
 #export PATH="/Users/nnavarro/Library/Python/3.6/bin:$PATH"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-# Those path it's just for OSX
-export VIRTUALENVWRAPPER_VIRTUALENV=/Users/nestornav/Library/Python/Version_X.X/bin/virtualenv
-source /Users/nestornav/Library/Python/Version_X.X/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_VIRTUALENV=/Users/nestornav/Library/Python/X.X/bin/virtualenv
+source /Users/nestornav/Library/Python/X.X/bin/virtualenvwrapper.sh
 
 # Pyenv stuff
 
@@ -47,15 +47,23 @@ export PGDATA="/usr/local/var/postgres/cluster"
 export PGLOG="/usr/local/var/postgres/server.log"
 export PATH="/usr/local/sbin:$PATH"
 
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+export CPPFLAGS="$CPPFLAGS -Xpreprocessor -fopenmp"
+export CFLAGS="$CFLAGS -I/usr/local/opt/libomp/include"
+export CXXFLAGS="$CXXFLAGS -I/usr/local/opt/libomp/include"
+export LDFLAGS="$LDFLAGS -Wl,-rpath,/usr/local/opt/libomp/lib -L/usr/local/opt/libomp/lib -lomp"
+
 # Alias
 alias vscode="open -a Visual\ Studio\ Code"
 alias python=python3
 alias pip=pip3
+alias k=kubectl
+alias virtualenvdelete='rm -rf $1'
 
 # Alias git
 alias gt="git --help"
 alias gts="git status"
-alias gtd="git diff"
 alias gtl="git log"
 alias gtb="git branch"
 alias gtr="git remove -v"
